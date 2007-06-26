@@ -1,0 +1,66 @@
+init: comienza
+-> p_proc_actual->estado es 2
+-> PROC 0: CREAR PROCESO
+init: termina
+-> FIN PROCESO 0
+-> C.CONTEXTO POR FIN: de 0 a 1
+prueba_term: comienza
+-> PROC 1: CREAR PROCESO
+-> PROC 1: CREAR PROCESO
+prueba_term: termina
+-> FIN PROCESO 1
+-> C.CONTEXTO POR FIN: de 1 a 0
+-> EL PID DEL PROCESO ES 0
+lector (0): comienza
+lector (0): pulsa caracteres a partir de ahora
+-> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (0): has pulsado lector (0) duerme 3 segundos
+-> EL PROCESO QUIERE DORMIR 3 SEGUNDOS <=> 300 JIFFIES
+-> EL PID DEL PROCESO ES 2
+lector (2): comienza
+lector (2): pulsa caracteres a partir de ahora
+-> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado lector (2) duerme 3 segundos
+-> EL PROCESO QUIERE DORMIR 3 SEGUNDOS <=> 300 JIFFIES
+-> 0 listo
+-> 2 listo
+-> TRATANDO INT. SW
+-> usamos round robin
+-> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado -> EL PROCESO QUIERE LEER UN CARACTER
+-> paso 1
+-> paso 2
+lector (2): has pulsado lector (2): termina
+-> FIN PROCESO 2
+-> C.CONTEXTO POR FIN: de 2 a 0
+excepcion de memoria cuando estaba dentro del kernel
