@@ -1,81 +1,81 @@
 cd minikernel; make
-make[1]: se ingresa al directorio `/home/palmax/dso4/minikernel.2006/minikernel'
+make[1]: se ingresa al directorio `/home/palmax/alfdsopal/minikernel.2006/minikernel'
 gcc -g -Wall -Iinclude   -c -o kernel.o kernel.c
 gcc -shared -o kernel kernel.o HAL.o  -ldl
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
-make[1]: se sale del directorio `/home/palmax/dso4/minikernel.2006/minikernel'
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+make[1]: se sale del directorio `/home/palmax/alfdsopal/minikernel.2006/minikernel'
 cd usuario; make
-make[1]: se ingresa al directorio `/home/palmax/dso4/minikernel.2006/usuario'
+make[1]: se ingresa al directorio `/home/palmax/alfdsopal/minikernel.2006/usuario'
 cd lib; make
-make[2]: se ingresa al directorio `/home/palmax/dso4/minikernel.2006/usuario/lib'
+make[2]: se ingresa al directorio `/home/palmax/alfdsopal/minikernel.2006/usuario/lib'
 gcc -Wall -g -I../include -I../../minikernel/include   -c -o serv.o serv.c
 ar -r libserv.a serv.o misc.o
 ar: creando libserv.a
-make[2]: se sale del directorio `/home/palmax/dso4/minikernel.2006/usuario/lib'
+make[2]: se sale del directorio `/home/palmax/alfdsopal/minikernel.2006/usuario/lib'
 cc -Wall -Werror -g -Iinclude   -c -o init.o init.c
 cc -shared -o init init.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o excep_arit.o excep_arit.c
 cc -shared -o excep_arit excep_arit.o -Llib  -lserv 
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o excep_mem.o excep_mem.c
 cc -shared -o excep_mem excep_mem.o -Llib -lserv 
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o simplon.o simplon.c
 cc -shared -o simplon simplon.o -Llib -lserv 
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_dormir.o prueba_dormir.c
 cc  -shared -o prueba_dormir prueba_dormir.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_tiempos.o prueba_tiempos.c
 cc  -shared -o prueba_tiempos prueba_tiempos.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o dormilon.o dormilon.c
 cc  -shared -o dormilon dormilon.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_mutex1.o prueba_mutex1.c
 cc  -shared -o prueba_mutex1 prueba_mutex1.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o creador1.o creador1.c
 cc  -shared -o creador1 creador1.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o creador2.o creador2.c
 cc  -shared -o creador2 creador2.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o creador3.o creador3.c
 cc  -shared -o creador3 creador3.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o creador4.o creador4.c
 cc  -shared -o creador4 creador4.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o abridor.o abridor.c
 cc  -shared -o abridor abridor.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_mutex2.o prueba_mutex2.c
 cc  -shared -o prueba_mutex2 prueba_mutex2.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o mutex1.o mutex1.c
 cc  -shared -o mutex1 mutex1.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o mutex2.o mutex2.c
 cc  -shared -o mutex2 mutex2.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_RR1.o prueba_RR1.c
 cc  -shared -o prueba_RR1 prueba_RR1.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o yosoy.o yosoy.c
 cc  -shared -o yosoy yosoy.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_RR2.o prueba_RR2.c
 cc  -shared -o prueba_RR2 prueba_RR2.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o mudo.o mudo.c
 cc  -shared -o mudo mudo.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o prueba_term.o prueba_term.c
 cc  -shared -o prueba_term prueba_term.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
 cc -Wall -Werror -g -Iinclude   -c -o lector.o lector.c
 cc  -shared -o lector lector.o -Llib -lserv
-/usr/lib/gcc/i686-pc-linux-gnu/4.1.1/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
-make[1]: se sale del directorio `/home/palmax/dso4/minikernel.2006/usuario'
+/usr/lib/gcc/i686-pc-linux-gnu/4.1.2/../../../../i686-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object.
+make[1]: se sale del directorio `/home/palmax/alfdsopal/minikernel.2006/usuario'

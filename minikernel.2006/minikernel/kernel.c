@@ -310,10 +310,10 @@ static void int_terminal(){
       
   //  printk("Salimos con i == %d\n",i);
       
-  if (!hay_hueco)
+  if (!hay_hueco) {
     fijar_nivel_int(nivel_anterior);
     return;  //  Si no hay hueco se descarta el char como dice el enunciado
-  else {
+  } else {
     buffer_chars.chars[i] = caracter;
       
     //  printk("metiendo buffer_chars.chars[%d]=%c\n", i, caracter);    

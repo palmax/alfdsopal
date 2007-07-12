@@ -51,6 +51,7 @@ int main(){
 	if (crear_mutex("m17", 0)<0)
 		printf("error creando m17. DEBE SALIR\n");
 
+	printf("hello\n");
 	printf("abridor termina\n");
 	return 0;
 }

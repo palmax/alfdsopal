@@ -20,7 +20,7 @@ int main(){
 
 	id=obtener_id_pr();
 	for (i=0; i<TOT_ITER; i++)
-		printf("yosoy (%d): i %d\n", id, i);
+	    printf("yosoy (%d): i %d\n", id, i);
 	printf("yosoy (%d): termina\n", id);
 	return 0;
 }

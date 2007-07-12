@@ -44,13 +44,14 @@ typedef struct BCP_t {
         void * pila;			/* dir. inicial de la pila */
 	BCPptr siguiente;		/* puntero a otro BCP */
 	void *info_mem;			/* descriptor del mapa de memoria */
-  // Yo
+
+  // Nuestro {
   int                 jiffies;
   struct tiempos_ejec tiempos;
   short int           nivel;
   short int           cuanto_queda_rodaja;
   short int           mutex_consultados[NUM_MUT_PROC];
-  //  short int           indice_mutex_consultados;
+  // }
 } BCP;
 
 /*
@@ -154,16 +155,16 @@ struct descriptor lista_mutex[NUM_MUT];
 /*
 struct lista_mutex_t{
     struct descriptor lista_descriptores[NUM_MUT];
-  //    short int         indice;
 } lista_mutex;
 */
 
-lista_BCPs lista_bloqueados_mutex = {NULL, NULL};
+lista_BCPs lista_bloqueados_mutex [NUM_MUT];
+
+lista_BCPs lista_esperando_mutex= {NULL, NULL};
 
 struct buffer_chars_t{
   char      chars[TAM_BUF_TERM];
   short int indice;
-  short int siguiente_libre;  //  si no libres -1
 } buffer_chars;
 
 /*
