@@ -131,7 +131,7 @@ static BCP * planificador(){
     espera_int();           /* No hay nada que hacer */
   lista_listos.primero->estado = EJECUCION;
   lista_listos.primero->cuanto_queda_rodaja = TICKS_POR_RODAJA;
-  fijar_nivel_int(lista_listos.primero->nivel);
+  //fijar_nivel_int(lista_listos.primero->nivel);
   return lista_listos.primero;
 }
 
@@ -324,7 +324,7 @@ static void int_terminal(){
       p_proc_anterior                    = p_proc_actual;
       p_proc_actual                      = lista_bloqueados_terminal.primero;
       p_proc_actual->nivel               = nivel_anterior;
-      p_proc_actual->cuanto_queda_rodaja = TICKS_POR_RODAJA;
+      //p_proc_actual->cuanto_queda_rodaja = TICKS_POR_RODAJA;
       p_proc_actual->estado              = LISTO;
       eliminar_elem(&lista_bloqueados_terminal, p_proc_actual);
       insertar_ultimo(&lista_listos, p_proc_actual);  //  metemos
@@ -379,7 +379,7 @@ static void int_sw(){  //  Falta lo de las llamadas al sistema
   }
     
   //  Tanto si hay mas como si no le doy ticks
-  p_proc_anterior->cuanto_queda_rodaja = TICKS_POR_RODAJA;
+  //p_proc_anterior->cuanto_queda_rodaja = TICKS_POR_RODAJA;
 
   /*    
   printk ("p_proc_anterior                      == %d\n",
@@ -476,9 +476,10 @@ static void int_reloj(){  //  paux_ant no servia para nada
       insertar_ultimo(&lista_listos, paux);
       //  hay que planificar?
       paux = paux_sig;
-      if (paux_sig)
+      if (paux_sig) {
 	printk("-> %d siguiendo a %d\n",paux->id, paux->siguiente);
 	paux_sig = paux_sig->siguiente;
+    }
     } else {
       paux = paux_sig;
       if (paux_sig)
@@ -559,7 +560,7 @@ static int crear_tarea(char *prog){
       }
       //              p_proc->indice_mutex_consultados = 0;  //  usar %
       //              p_proc->indice_mutex_abiertos = 0;  //  usar %
-      p_proc->cuanto_queda_rodaja   = TICKS_POR_RODAJA;
+      //p_proc->cuanto_queda_rodaja   = TICKS_POR_RODAJA;
       /* lo inserta al final de cola de listos */
       nivel_anterior = fijar_nivel_int(NIVEL_3);
       insertar_ultimo(&lista_listos, p_proc);
@@ -932,7 +933,7 @@ int sis_unlock() {
           paux = 
             lista_mutex[i].procesos_bloqueados.primero;
 	  paux->estado = LISTO;
-	  paux->cuanto_queda_rodaja = TICKS_POR_RODAJA;
+	  //paux->cuanto_queda_rodaja = TICKS_POR_RODAJA;
           eliminar_elem(&lista_mutex[i].procesos_bloqueados,
                         paux);  //  quitamos de lista mutex bloqueados
           insertar_ultimo(&lista_listos,
@@ -1056,7 +1057,7 @@ int sis_cerrar_mutex(){
 	lista_mutex[i].cerrojos_bloqueados--;
 	p_proc_aux                         = lista_bloqueados_mutex[i].primero;
 	p_proc_aux->estado                 = LISTO;
-	p_proc_aux->cuanto_queda_rodaja    = TICKS_POR_RODAJA;  //  no? <- !!!!
+	//p_proc_aux->cuanto_queda_rodaja    = TICKS_POR_RODAJA;  //  no? <- !!!!
 	eliminar_elem(&lista_bloqueados_mutex[i],
 		      p_proc_aux);  //  quitamos de lista bloqueados mutex
 	insertar_ultimo(&lista_listos, p_proc_aux);  //  metemos
@@ -1116,7 +1117,7 @@ int sis_leer_caracter(){
       nivel_anterior                     = fijar_nivel_int(NIVEL_3);
       p_proc_anterior                    = p_proc_actual;
       p_proc_actual->nivel               = nivel_anterior;
-      p_proc_actual->cuanto_queda_rodaja = TICKS_POR_RODAJA;
+      //p_proc_actual->cuanto_queda_rodaja = TICKS_POR_RODAJA;
       p_proc_actual->estado              = BLOQUEADO;
       p_proc_anterior                    = p_proc_actual;
       eliminar_elem(&lista_listos, p_proc_actual);  //  kitamos de lista_listos
