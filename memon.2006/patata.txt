@@ -1,0 +1,16 @@
+cd programas; make
+make[1]: Entering directory `/home2/alumnos/i/i010328/dso4/memon.2006/programas'
+cc -Wall -g   -c -o prueba1.o prueba1.c
+cc -shared -o prueba1 prueba1.o
+cc -Wall -g   -c -o prueba2.o prueba2.c
+cc -shared -o prueba2 prueba2.o
+cc -Wall -g   -c -o error_acceso.o error_acceso.c
+cc -shared -o error_acceso error_acceso.o
+cc -Wall -g   -c -o error_escritura.o error_escritura.c
+cc -shared -o error_escritura error_escritura.o
+make[1]: Leaving directory `/home2/alumnos/i/i010328/dso4/memon.2006/programas'
+cc -Wall -g   -c -o memon.o memon.c
+cc -Wall -g   -c -o mapa.o mapa.c
+cc -Wall -g   -c -o fallo.o fallo.c
+cc -Wall -g   -c -o marcos.o marcos.c
+cc -rdynamic -o memon memon.o apoyo.o mapa.o fallo.o marcos.o -ldl

@@ -2,11 +2,11 @@ Return-Path: <ssoo@triqui1.fi.upm.es>
 X-Original-To: i010328
 Delivered-To: i010328@triqui1.fi.upm.es
 Received: by triqui1.fi.upm.es (Postfix-TLS/MJ-1.06, from userid 612)
-	id 2777CE89F7; Thu, 11 Jan 2007 19:10:18 +0100 (CET)
-Date: Thu, 11 Jan 2007 19:10:18 +0100
+	id 326E8E89F7; Tue, 17 Jul 2007 16:06:00 +0200 (CEST)
+Date: Tue, 17 Jul 2007 16:06:00 +0200
 To: i010328@triqui1.fi.upm.es
 Subject: Correccion de minikernel
-Message-ID: <45A67D8A.mailx3PR1EANQT@triqui1.fi.upm.es>
+Message-ID: <469CCCC8.mailx8L51W6J0C@triqui1.fi.upm.es>
 User-Agent: nail 10.6 11/15/03
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
@@ -19,7 +19,7 @@ GRUPO:
 50215931 Garcia Frey Alfonso 010165
 50887288 Paje Del_Pino Ruben 010328 
 
-FECHA DE CORRECCI?N: Thu Jan 11 19:07:40 CET 2007
+FECHA DE CORRECCI?N: Tue Jul 17 16:02:53 CEST 2007
 _______________________________________________________________________
 
 M?TODO DE EVALUACI?N:
@@ -59,9 +59,9 @@ NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 1.500 (Sobre 1.500)
 PROBANDO LAS INTERRUPCIONES EN DORMIR (Calificaci?n sobre .125)
 	NOTA: La prueba se detiene ante el primer fallo detectado.
 
-ERROR AL PROHIBIR INTERRUPCIONES EN TERMINAR_PROCESO CUANDO NO SE REQUIERE
+PRUEBA CORRECTA
 
-NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 1.500 (Sobre 1.625)
+NOTA DE LA PRUEBA = .125; NOTA ACUMULADA = 1.625 (Sobre 1.625)
 ===================================================
 PROBANDO LA LLAMADA TIEMPOS_PROCESO (Calificaci?n total sobre 1.500)
 
@@ -86,14 +86,14 @@ Cuarta Fase: Par?metro incorrecto a tiempos_proceso (Calificaci?n sobre .375)
 
 PRUEBA CORRECTA
 
-NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 3.000 (Sobre 3.125)
+NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 3.125 (Sobre 3.125)
 ===================================================
 PROBANDO LAS INTERRUPCIONES EN TIEMPOS_PROCESO (Calificaci?n sobre .125)
 	NOTA: La prueba se detiene ante el primer fallo detectado.
 
 PRUEBA CORRECTA
 
-NOTA DE LA PRUEBA = .125; NOTA ACUMULADA = 3.125 (Sobre 3.250)
+NOTA DE LA PRUEBA = .125; NOTA ACUMULADA = 3.250 (Sobre 3.250)
 ===================================================
 PROBANDO LAS LLAMADAS PARA CREAR, ABRIR Y CERRAR MUTEX (Calificaci?n total sobre 1.500)
 
@@ -101,16 +101,30 @@ PROBANDO LAS LLAMADAS PARA CREAR, ABRIR Y CERRAR MUTEX (Calificaci?n total sobre
 ---------------------------------------------------
 Primera Fase: Prueba las llamadas crear, abrir y cerrar usando "prueba_mutex1" (Calificaci?n sobre 1.000)
 
-HA OCURRIDO UNA EXCEPCI?N
+PRUEBA CORRECTA
 
+---------------------------------------------------
+Segunda Fase: Prueba otros aspectos de las llamadas crear, abrir y cerrar (Calificaci?n sobre .500):
 
-NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 3.125 (Sobre 4.750)
+	Cierre impl?cito ante excepci?n, tratamiento de situaci?n con varios procesos bloqueados esperando un descriptor libre, ...
+
+PRUEBA CORRECTA
+
+NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 4.750 (Sobre 4.750)
+===================================================
+PROBANDO LAS INTERRUPCIONES EN CREAR, ABRIR Y CERRAR (Calificaci?n sobre .125)
+	NOTA: La prueba se detiene ante el primer fallo detectado.
+
+PRUEBA CORRECTA
+
+NOTA DE LA PRUEBA = .125; NOTA ACUMULADA = 4.875 (Sobre 4.875)
 ===================================================
 PROBANDO LAS LLAMADAS LOCK Y UNLOCK (Calificaci?n total sobre 1.500)
 
-ERROR: SE QUEDA BLOQUEADO
+HA OCURRIDO UNA EXCEPCI?N
 
-NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 3.125 (Sobre 6.375)
+
+NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 4.875 (Sobre 6.375)
 ===================================================
 PROBANDO EL ROUND-ROBIN (Calificaci?n total sobre 1.500)
 
@@ -118,24 +132,44 @@ PROBANDO EL ROUND-ROBIN (Calificaci?n total sobre 1.500)
 ---------------------------------------------------
 Primera Fase: Prueba round-robin usando "prueba_RR1" y "prueba_RR2" (Calificaci?n sobre .500)
 
-NO SE HACE CAMBIO DE CONTEXTO EN int_sw QUE LO REQUIERE 
+PRUEBA CORRECTA
 
-NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 3.125 (Sobre 8.000)
+---------------------------------------------------
+Segunda Fase: Prueba el siguiente aspecto planteado en el enunciado  (Calificaci?n sobre .500)
+
+	Si un proceso que tiene pendiente un cambio de contexto involuntario se bloquea (o termina) como parte de la ejecuci?n de una llamada, no debe aplic?rsele dicho cambio
+
+PRUEBA CORRECTA
+
+---------------------------------------------------
+Tercera Fase: Prueba el siguiente aspecto planteado en el enunciado  (Calificaci?n sobre .500)
+
+	Al asignar el procesador a un proceso, se le debe conceder siempre una rodaja completa, con independencia de si la rodaja previa la consumi? completa o no.
+
+PRUEBA CORRECTA
+
+NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 6.375 (Sobre 8.000)
+===================================================
+PROBANDO LAS INTERRUPCIONES EN ROUND-ROBIN (Calificaci?n sobre .125)
+	NOTA: La prueba se detiene ante el primer fallo detectado.
+
+PRUEBA CORRECTA
+
+NOTA DE LA PRUEBA = .125; NOTA ACUMULADA = 6.500 (Sobre 8.125)
 ===================================================
 PROBANDO LA LECTURA DEL TERMINAL (Calificaci?n total sobre 1.500)
 
-USO INDEBIDO DE LA INT SW
-ERROR TRATANDO EL CASO DE QUE, HABIENDO UN CAR?CTER EN EL BUFFER, UN PROCESO LLAMA A LEER MIENTRAS OTRO EST? LISTO PARA EJECUTAR PERO DENTRO DE LEER_CARACTER
+PRUEBA CORRECTA
 
-NOTA DE LA PRUEBA = 1.000; NOTA ACUMULADA = 4.125 (Sobre 9.625)
+NOTA DE LA PRUEBA = 1.500; NOTA ACUMULADA = 8.000 (Sobre 9.625)
 ===================================================
 PROBANDO LAS INTERRUPCIONES EN TERMINAL (Calificaci?n sobre .125)
 	NOTA: La prueba se detiene ante el primer fallo detectado.
 
 ERROR AL NO PROHIBIR INTERRUPCIONES EN RUTINA INT. TERMINAL QUE LO REQUIERE
 
-NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 4.125 (Sobre 9.750)
+NOTA DE LA PRUEBA = 0; NOTA ACUMULADA = 8.000 (Sobre 9.750)
 ===================================================
 
 
-NOTA TOTAL= 4.125
+NOTA TOTAL= 8.000
